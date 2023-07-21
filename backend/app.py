@@ -5,7 +5,9 @@ from flask_cors import CORS
 import json
 app = Flask(__name__)
 CORS(app) 
-# MongoDB connection
+
+
+# MongoDB
 client = MongoClient("mongodb+srv://mrunagabhane:mrunagabhane@cluster0.igcesup.mongodb.net/TripBuddy?retryWrites=true&w=majority")
 db = client.TripBuddy
 
@@ -55,7 +57,7 @@ class Booking:
 
 @app.route("/")
 def index():
-    return ("server running")
+    return ("server is running")
 
 # Host routes
 @app.route("/api/hosts", methods=["GET"])
@@ -78,6 +80,7 @@ def get_host(host_id):
     host = db.hosts.find_one({"_id": ObjectId(host_id)})
     if host:
         res={}
+
 # Convert ObjectId to string and store in 'res'
         res["id"] = str(host["_id"])
         res["name"] = str(host["name"])
@@ -95,11 +98,13 @@ def create_host():
     db.hosts.insert_one(host.__dict__)
     return jsonify({"message": "Host created successfully"}), 201
 
+
 @app.route("/api/hosts/<string:host_id>", methods=["PUT"])
 def update_host(host_id):
     data = request.get_json()
     db.hosts.update_one({"_id": ObjectId(host_id)}, {"$set": data})
     return jsonify({"message": "Host updated successfully"})
+
 
 @app.route("/api/hosts/<string:host_id>", methods=["DELETE"])
 def delete_host(host_id):
@@ -107,6 +112,8 @@ def delete_host(host_id):
     if result.deleted_count > 0:
         return jsonify({"message": "Host deleted successfully"})
     return jsonify({"message": "Host not found"}), 404
+
+
 
 # Property routes
 @app.route("/api/properties", methods=["GET"])
@@ -132,6 +139,8 @@ def get_property(property_id):
     if property:
 
         res={}
+
+        
 # Convert ObjectId to string and store in 'res'
         res["id"] = str(property["_id"])
         res["title"] = str(property["title"])
