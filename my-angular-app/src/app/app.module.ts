@@ -12,7 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FooterComponent } from './footer/footer.component'; 
+import { FooterComponent } from './footer/footer.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { PropertiesComponent } from './properties/properties.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { FooterComponent } from './footer/footer.component';
 
     LoginComponent,
      RegisterComponent,
-     FooterComponent
+     FooterComponent,
+     BookingsComponent,
+     PropertiesComponent,
+    
   ],
   imports: [
     BrowserModule,

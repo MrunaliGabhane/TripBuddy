@@ -39,7 +39,7 @@ export class LoginComponent {
     });
 
     // Replace the backend API URL with your actual backend API URL
-    this.http.post<any>('http://localhost:5000/login/guest', loginData).subscribe(
+    this.http.post<any>('http://127.0.0.1:5000/login/guest', loginData).subscribe(
       (response) => {
         if (response.message === 'Guest login successful') {
           console.log('Login successful');
