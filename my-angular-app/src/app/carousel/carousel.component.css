@@ -1,0 +1,21 @@
+.carousel-container {
+    display: block;
+    margin: 0 auto;
+    max-width: 800px; /* Adjust the width as needed */
+  }
+  
+  .carousel-item {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .carousel-caption p {
+    margin: 0;
+  }
+  

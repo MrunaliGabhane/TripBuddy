@@ -1,0 +1,55 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/property-listing">TripBuddy</a>
+  </div>
+  <div class="navbar-hamburger" (click)="toggleNavbar()">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </div>
+  <ul class="navbar-links" [ngClass]="{ active: isNavbarActive }">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/hosts">Hosts</a></li>
+    <li><a routerLink="/guests">Guests</a></li>
+    <li><a routerLink="/bookings">Bookings</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <button class="navbar-action-btn" routerLink="/register">Register</button>
+    <button class="navbar-action-btn" routerLink="/login">Log In</button>
+  </div>
+</nav>
+
+
+
+  
+
+ <!-- <nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/property-listing">TripBuddy</a>
+  </div>
+  <div class="navbar-hamburger" (click)="toggleNavbar()">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </div>
+  <ul class="navbar-links" [ngClass]="{ active: isNavbarActive }">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/hosts">Hosts</a></li>
+    <li><a routerLink="/guests">Guests</a></li>
+    <li><a routerLink="/bookings">Bookings</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <div class="toggle-buttons">
+      <button class="navbar-action-btn" (click)="toggleUserOptions()">User</button>
+      <button class="navbar-action-btn" (click)="toggleAdminOptions()">Admin</button>
+    </div>
+    <div class="user-options" *ngIf="showUserOptions">
+      <button class="navbar-action-btn" routerLink="/register">Register</button>
+      <button class="navbar-action-btn" routerLink="/login">Login</button>
+    </div>
+    <div class="admin-options" *ngIf="showAdminOptions">
+      <button class="navbar-action-btn" (click)="showAdminRegister()">Register</button>
+      <button class="navbar-action-btn" (click)="showAdminLogin()">Login</button>
+    </div>
+  </div>
+</nav> -->

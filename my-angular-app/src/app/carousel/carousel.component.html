@@ -1,0 +1,13 @@
+<div class="carousel">
+    <ngx-slick-carousel class="carousel-container" [config]="carouselConfig">
+      <div ngxSlickItem *ngFor="let item of carouselItems">
+        <div class="carousel-item">
+          <img [src]="item.imageUrl" alt="{{ item.caption }}" />
+          <div class="carousel-caption">
+            <p>{{ item.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+  
