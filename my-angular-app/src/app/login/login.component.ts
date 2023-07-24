@@ -42,11 +42,12 @@ export class LoginComponent {
     this.http.post<any>('http://127.0.0.1:5000/login/guest', loginData).subscribe(
       (response) => {
         if (response.message === 'Guest login successful') {
+          localStorage.setItem('userRole', 'guest')
           console.log('Login successful');
           this.isLoading = false; // Set isLoading to false after the login process
 
           // Redirect to the host page
-          this.router.navigate(['/hosts']);
+          this.router.navigate(['/properties']);
 
           // Close the SweetAlert loading indicator
           Swal.close();

@@ -1,6 +1,8 @@
-// hosts.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Host } from '../host.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HostService } from '../host.service';
+import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2'; // Import SweetAlert
 
 @Component({
   selector: 'app-hosts',
@@ -8,89 +10,135 @@ import { Host } from '../host.model';
   styleUrls: ['./hosts.component.css']
 })
 export class HostsComponent implements OnInit {
-  hosts: Host[] = [];
-  selectedHost: Host | null = null;
-  isCreating: boolean = false;
+  properties: any[] = [];
+  property: any = {};
+  propertyForm: FormGroup;
   isEditing: boolean = false;
-  newHost: Host = {
-    id: 0,
-    name: '',
-    status: false,
-    location: '',
-    propertyType: '',
-    about: '',
-    hostingSince: new Date()
-  };
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private hostService: HostService) {
+    this.propertyForm = this.formBuilder.group({
+      id: [''],
+      title: ['', Validators.required],
+      location: ['', Validators.required],
+      property_type: ['', Validators.required],
+      description: ['', Validators.required],
+      price_per_night: ['', Validators.required],
+      status: ['', Validators.required],
+      img: ['']
+    });
+  }
 
   ngOnInit() {
-    // Fetch hosts data from your backend or a service and update the "hosts" array
-    // For demonstration purposes, I'm adding some sample data here
-    this.hosts = [
-      {
-        id: 1,
-        name: 'John Doe',
-        status: true,
-        location: 'New York, USA',
-        propertyType: 'Apartment',
-        about: 'I love hosting guests and showing them around the city!',
-        hostingSince: new Date('2022-01-15')
+    this.fetchProperties();
+  }
+
+  fetchProperties() {
+    this.hostService.getProperties().subscribe(
+      (data) => {
+        this.properties = data;
       },
-      // Add more sample hosts here
-    ];
+      (error) => {
+        console.error('Error fetching properties:', error);
+      }
+    );
   }
 
-  createHost() {
-    this.isCreating = true;
-    this.selectedHost = null;
-  }
-
-  saveHost() {
-    // Add the newHost to the hosts array (and save it to the backend if needed)
-    this.hosts.push({ ...this.newHost, id: this.hosts.length + 1 });
-    this.isCreating = false;
-    this.newHost = {
-      id: 0,
-      name: '',
-      status: false,
-      location: '',
-      propertyType: '',
-      about: '',
-      hostingSince: new Date()
-    };
-  }
-
-  editHost(host: Host) {
-    this.selectedHost = { ...host };
-    this.isEditing = true;
-  }
-
-  updateHost() {
-    // Find the index of the selectedHost in the hosts array and update it
-    const index = this.hosts.findIndex(h => h.id === this.selectedHost?.id);
-    if (index !== -1) {
-      this.hosts[index] = { ...this.selectedHost! };
-      this.isEditing = false;
-      this.selectedHost = null;
+  onSubmit() {
+    const formData = this.propertyForm.value;
+    if (formData.id) {
+      this.http.put<any>('http://localhost:5000/api/properties/' + formData.id, formData)
+        .subscribe(
+          () => {
+            this.fetchProperties();
+            this.resetForm();
+            Swal.fire({
+              title: 'Updated!',
+              text: 'The property has been updated successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error updating property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while updating the property.',
+              icon: 'error',
+            });
+          }
+        );
+    } else {
+      this.http.post<any>('http://localhost:5000/api/properties', formData)
+        .subscribe(
+          () => {
+            this.fetchProperties();
+            this.resetForm();
+            Swal.fire({
+              title: 'Created!',
+              text: 'The property has been created successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error creating property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while creating the property.',
+              icon: 'error',
+            });
+          }
+        );
     }
   }
 
-  deleteHost(host: Host) {
-    // Filter out the selectedHost from the hosts array (and delete it from the backend if needed)
-    this.hosts = this.hosts.filter(h => h.id !== host.id);
+  onEditProperty(property: any) {
+    if (property && property.id) {
+      this.propertyForm.patchValue(property);
+      this.isEditing = true;
+      this.propertyForm.get('id')?.setValue(property.id);
+    } else {
+      console.error('Invalid property ID:', property);
+    }
   }
 
-  cancel() {
-    this.isCreating = false;
+  onCancelEdit() {
     this.isEditing = false;
-    this.selectedHost = null;
-    this.newHost = {
-      id: 0,
-      name: '',
-      status: false,
-      location: '',
-      propertyType: '',
-      about: '',
-      hostingSince: new Date()
-    };
+    this.resetForm();
   }
+
+  onDeleteProperty(propertyId: string) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this property. This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.hostService.deleteProperty(propertyId).subscribe(
+          () => {
+            this.fetchProperties();
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The property has been deleted successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error deleting property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while deleting the property.',
+              icon: 'error',
+            });
+          }
+        );
+      }
+    });
+  }
+
+  resetForm() {
+    this.propertyForm.reset();
+  }
+  
 }

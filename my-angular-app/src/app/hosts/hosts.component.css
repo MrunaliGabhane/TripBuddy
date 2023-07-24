@@ -1,52 +1,155 @@
-/* hosts.component.css */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  button {
-    background-color: #FF385C;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-  }
-  
-  input,
-  textarea {
-    margin-bottom: 10px;
-    padding: 5px;
-  }
-  
-  button {
-    margin-top: 10px;
-  }
-  
+
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;
+  width: 100%;
+}
+
+.form-container{
+  width: 35%;
+  padding: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 18px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.form-group button.btn-submit {
+margin: 10px 0 10px 0;
+  background-color: #ff385c;
+}
+
+.form-group button.btn-cancel {
+  background-color: #777;
+  margin-left: 10px;
+  margin: 10px 0 10px 0;
+}
+
+.table-container {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.property-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.property-table th,
+.property-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  color: #333;
+}
+
+.property-table th {
+  font-weight: bold;
+}
+
+.property-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.property-table tr:hover {
+  background-color: #ddd;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 8px 16px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-edit {
+  margin: 5px;
+  background-color: #007bff;
+  color: #fff;
+  width: 90px;
+}
+
+.btn-delete {
+  background-color: red;
+  color: #fff;
+  margin: 5px;
+  width: 90px;
+}
+#form_heading{
+  text-align: center;
+  color: #ff385c;
+  font-weight: bold;
+}
+#table_tr{
+  background: #ff385c;
+ 
+}
+#table_tr th{
+  color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+

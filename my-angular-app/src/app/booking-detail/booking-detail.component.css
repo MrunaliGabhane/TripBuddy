@@ -1,0 +1,278 @@
+/* Styling for the booking details container */
+.booking-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  
+  /* Styling for the left side (Booking Details) */
+  .booking-details {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-details h1 {
+    margin-bottom: 10px;
+  }
+  
+  .booking-details img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .booking-details p {
+    margin-bottom: 8px;
+  }
+  
+  .booking-details button {
+    background-color:#ff385c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Styling for the right side (Booking Form) */
+  .booking-form {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form h2 {
+    margin-bottom: 10px;
+  }
+  
+  .booking-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .booking-form button {
+    background-color:#ff385c;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+
+
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 62.5%; /* 10/16 = 0.625 * 100 */
+  }
+  
+  body {
+   
+    backdrop-filter: blur(8px);
+    color: #3c3c39;
+  
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Monsterrat', sans-serif;
+    position: relative;
+    padding: 2rem 0;
+  }
+  
+  .checkout-container {
+    /* background-color: red; */
+    max-width: 120rem;
+    height: 50rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    /* margin-bottom: 10rem; */
+  }
+  
+  em {
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  hr {
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Left Side Of Container */
+  .left-side {
+    background: url('https://images.pexels.com/photos/2876787/pexels-photo-2876787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .text-box {
+    background: rgba(95, 121, 134, 0.8);
+    width: 100%;
+    padding: 1rem 2rem;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Left container text */
+  
+  .home-heading {
+    color: #e8e8e1;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  
+  .home-price {
+    color: #aeae97;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .home-desc {
+    color: #e8e8e1;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Right Side of container */
+  
+  .right-side {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 1.8rem 3.2rem;
+    width: 40%;
+
+  }
+  
+ 
+  
+  .table {
+    border-collapse: separate;
+    border-spacing: 0 1.5rem;
+    color: #64645f;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .total td {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  
+  .price {
+    text-align: end;
+  }
+  
+ .personal-heading{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: red;
+  }
+  /* Payment Section */
+  
+  .payment-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: red;
+  }
+  
+  .form-box {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card-logo {
+    font-size: 2rem;
+  }
+  
+  .expires,
+  .form-box label {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .form-box input {
+    font-family: inherit;
+    font-size: 1.2rem;
+    /* padding: 0.5rem; */
+    width: 100%;
+  }
+  
+  .form-box select {
+    padding: 0.5rem;
+  }
+  
+  .form-box #cvv {
+    width: 25%;
+  }
+  
+  .cvv-info:link,
+  .cvv-info:visited {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  .cvv-info:hover,
+  .cvv-info:active {
+    color: #5f7986;
+    text-decoration: none;
+  }
+  
+  .btn {
+    background-color: #4c616b;
+    border: none;
+    border-radius: 8px;
+    color: #eff2f3;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #5f7986;
+    transition: ease-out 0.1s;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .form-box *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.8rem rgba(139, 139, 107, 0.5);
+    border-radius: 8px;
+  }

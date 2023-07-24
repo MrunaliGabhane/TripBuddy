@@ -1,8 +1,8 @@
 .register-container {
   display: flex;
-  align-items: center;
+  margin: 50px;
   justify-content: center;
-  height: 100vh;
+  height: auto;
   background-color: #f9f9f9;
   padding: 20px;
 }
