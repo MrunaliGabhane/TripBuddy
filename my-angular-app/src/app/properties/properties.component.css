@@ -94,7 +94,7 @@ input[type="text"] {
 }
 
 .book-now-button:hover {
-  background-color: #f21340;
+  background-color: #ff385c;
 }
 
 .pagination {
@@ -107,7 +107,7 @@ input[type="text"] {
 .pagination button {
   padding: 8px 15px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #d21037;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -121,7 +121,7 @@ input[type="text"] {
 }
 
 .pagination button:hover {
-  background-color: #0056b3;
+  background-color: #d21037;
 }
 
 /* Add styles for the spinner */

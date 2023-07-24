@@ -47,7 +47,7 @@ export class LoginComponent {
           this.isLoading = false; // Set isLoading to false after the login process
 
           // Redirect to the host page
-          this.router.navigate(['/booking']);
+          this.router.navigate(['/bookings']);
 
           // Close the SweetAlert loading indicator
           Swal.close();

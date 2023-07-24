@@ -51,7 +51,7 @@ export class HostsComponent implements OnInit {
   onSubmit() {
     const formData = this.propertyForm.value;
     if (formData.id) {
-      this.http.put<any>('https://tripbuddy-r74j.onrender.com/' + formData.id, formData)
+      this.http.put<any>('https://tripbuddy-r74j.onrender.com/api/properties/' + formData.id, formData)
         .subscribe(
           () => {
             this.fetchProperties();
@@ -72,7 +72,7 @@ export class HostsComponent implements OnInit {
           }
         );
     } else {
-      this.http.post<any>('https://tripbuddy-r74j.onrender.com/', formData)
+      this.http.post<any>('https://tripbuddy-r74j.onrender.com/api/properties', formData)
         .subscribe(
           () => {
             this.fetchProperties();
