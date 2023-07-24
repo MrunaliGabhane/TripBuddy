@@ -1,61 +1,122 @@
 /* bookings.component.css */
+.bookings-page {
+  width: 90%;
+  margin: auto;
+}
+
 .booking-details {
-    padding: 20px;
+  padding: 20px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 10px;
+}
+
+.property-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.property-card:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 10px;
+}
+
+.property-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.property-details {
+  flex: 1;
+}
+
+.property-details h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.property-details p {
+  margin-bottom: 5px;
+}
+
+#buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-button {
+  background-color: rgb(240, 54, 54);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: rgb(238, 84, 84);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.moveNow {
+  background-color: rgb(27, 123, 27);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.moveNow:hover {
+  background-color: rgb(100, 198, 100);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.delete-button:hover {
+  background-color: #f21340;
+}
+
+
+.spinner {
+
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #f21340;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+/* Keyframe animation for the spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .property-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .property-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
-  .property-card:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .property-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  .property-details {
-    flex: 1;
-  }
-  
-  .property-details h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .property-details p {
-    margin-bottom: 5px;
-  }
-  
-  .delete-button {
-    background-color: #ff385c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .delete-button:hover {
-    background-color: #e63154;
-  }
-  
+}

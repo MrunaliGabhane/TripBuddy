@@ -55,16 +55,24 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  
+
 }
 
 .form-group button:hover {
   background-color: #ff385c;
 }
-#registerbtn{
+
+#registerbtn {
   background: #e61c4d;
   height: 50px;
   color: bold;
   font-size: larger;
   font-weight: bold;
+}
+.colorLogin{
+  text-align: center;
+  margin: 5px;
+}
+.colorLogin span{
+  color: #e61c4d;
 }

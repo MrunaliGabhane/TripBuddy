@@ -1,22 +1,40 @@
-
 <div class="login-container">
   <div class="login-form">
     <h2>Guest Login</h2>
     <form (ngSubmit)="onLogin()" #loginForm="ngForm">
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required [(ngModel)]="email">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          [(ngModel)]="email"
+        />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required [(ngModel)]="password">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          [(ngModel)]="password"
+        />
       </div>
-      <button id="loginbtn" type="submit" [disabled]="isLoading || !loginForm.valid">Login</button>
+      <button
+        id="loginbtn"
+        type="submit"
+        [disabled]="isLoading || !loginForm.valid"
+      >
+        Login
+      </button>
     </form>
-   
+
     <div class="login-social">
-      <button class="social-button" >Login with Facebook</button>
-      <button class="social-button" >Login with Google</button>
+      <button class="social-button">Login with Facebook</button>
+      <button class="social-button">Login with Google</button>
+      <p class="colorReg">New to TripBuddy? <span routerLink="/register" >Create an Account</span></p>
     </div>
   </div>
 </div>

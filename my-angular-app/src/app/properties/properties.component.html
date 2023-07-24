@@ -1,15 +1,31 @@
 <div class="property-page">
-
-
   <div class="filters">
-    <input type="text" [(ngModel)]="titleFilter" (keyup)="applyFilters()" placeholder="Search by title">
-    <input type="text" [(ngModel)]="propertyTypeFilter" (keyup)="applyFilters()" placeholder="Filter by property type">
-    <input type="text" [(ngModel)]="locationFilter" (keyup)="applyFilters()" placeholder="Filter by location">
+    <input
+      type="text"
+      [(ngModel)]="titleFilter"
+      (keyup)="applyFilters()"
+      placeholder="Search by title"
+    />
+    <input
+      type="text"
+      [(ngModel)]="propertyTypeFilter"
+      (keyup)="applyFilters()"
+      placeholder="Filter by property type"
+    />
+    <input
+      type="text"
+      [(ngModel)]="locationFilter"
+      (keyup)="applyFilters()"
+      placeholder="Filter by location"
+    />
   </div>
 
-  <div class="property-grid">
+  <!-- Show the spinner if data is loading or properties array is empty -->
+  <div *ngIf="isLoading || properties.length === 0" class="spinner"></div>
+
+  <div class="property-grid" *ngIf="!isLoading && properties.length > 0">
     <div class="property-card" *ngFor="let property of properties">
-      <img [src]="property.img" alt="Property Image" class="property-image">
+      <img [src]="property.img" alt="Property Image" class="property-image" />
       <div class="property-details">
         <h2>{{ property.title }}</h2>
         <p>{{ property.location }}</p>
@@ -17,14 +33,24 @@
         <p>{{ property.description }}</p>
         <p>Price per Night: {{ property.price_per_night }}</p>
         <!-- <button class="book-now-button" style="background-color: #ff385c;">Book Now</button> -->
-        <button class="book-now-button" style="background-color: #ff385c;" (click)="bookProperty(property)">Start Booking</button>
+        <button
+          class="book-now-button"
+          style="background-color: #ff385c"
+          (click)="bookProperty(property)"
+        >
+          Start Booking
+        </button>
       </div>
     </div>
   </div>
 
   <div class="pagination">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
     <span>{{ currentPage }} / {{ totalPages }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
   </div>
 </div>

@@ -7,145 +7,108 @@
       <strong>Price per Night:</strong> ${{ bookingDetails.price_per_night }}
     </p>
     <p><strong>Location:</strong> {{ bookingDetails.location }}</p>
-    <button (click)="startBooking()">Book Now</button>
   </div>
 
   <!-- Right side - Form -->
   <div class="right-side">
     <div class="payment-info">
-      <h3 class="personal-heading">Personal Information</h3>
-      <form class="form-box" enctype="text/plain" method="get" target="_blank">
+      <form id="main_formdiv" class="form-box" [formGroup]="propertyForm" enctype="text/plain" method="get" target="_blank">
         <div>
-          <label for="first-name">First Name</label>
-          <input
-            required
-            class="first-name"
-            name="first-name"
-            placeholder="Your First Name"
-            type="text"
-          />
-        </div>
+          <h3 class="personal-heading">Personal Information</h3>
+          <div>
+            <label for="first-name">First Name</label>
+            <input required class="first-name" name="first-name" placeholder="Your First Name" type="text" formControlName="firstName" />
+          </div>
 
-        <div>
-          <label for="last-name">Last Name</label>
-          <input
-            required
-            class="full-name"
-            name="last-name"
-            placeholder="Your Last Name"
-            type="text"
-          />
-        </div>
+          <div>
+            <label for="last-name">Last Name</label>
+            <input required class="full-name" name="last-name" placeholder="Your Last Name" type="text" formControlName="lastName" />
+          </div>
 
-        <div>
-          <label for="phone-number">Phone</label>
-          <input
-            required
-            id="phone"
-            name="phone"
-            placeholder="Your Phone Number"
-            type="text"
-          />
-        </div>
+          <div>
+            <label for="phone-number">Phone</label>
+            <input required id="phone" name="phone" placeholder="Your Phone Number" type="text" formControlName="phone" />
+          </div>
 
-        <div>
-          <label for="email">Email</label>
-          <input
-            required
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            type="text"
-          />
-        </div>
+          <div>
+            <label for="email">Email</label>
+            <input required id="email" name="email" placeholder="Your Email" type="text" formControlName="email" />
+          </div>
 
-        <div>
-          <label for="arrival-date">Arrival date</label>
-          <input
-            required
-            id="arrival-date"
-            name="arrival-date"
-            placeholder="DD/MM/YYYY"
-            type="text"
-          />
-        </div>
+          <div>
+            <label for="arrival-date">Arrival date</label>
+            <input required id="arrival-date" name="arrival-date" placeholder="DD/MM/YYYY" type="text" formControlName="arrivalDate" />
+          </div>
 
-        <div>
-          <label for="departure-date">Departure date</label>
-          <input
-            id="departure-date"
-            name="departure-date"
-            placeholder="DD/MM/YYYY"
-            type="text"
-          />
-        </div>
-
-        <br />
-        <div>
-          <h3 class="payment-heading">Payment Information</h3>
-          <label for="credit-card-num"
-            >Card Number
-            <span class="card-logos">
-              <i class="card-logo fa-brands fa-cc-visa"></i>
-              <i class="card-logo fa-brands fa-cc-amex"></i>
-              <i class="card-logo fa-brands fa-cc-mastercard"></i>
-              <i class="card-logo fa-brands fa-cc-discover"></i> </span
-          ></label>
-          <input
-            id="credit-card-num"
-            name="credit-card-num"
-            placeholder="1111-2222-3333-4444"
-            required
-            type="text"
-          />
-        </div>
-
-        <div>
-          <p class="expires">Expires on:</p>
-          <div class="card-experation">
-            <label for="expiration-month">Month</label>
-            <select id="expiration-month" name="expiration-month" required>
-              <option value="">Month:</option>
-              <option value="">January</option>
-              <option value="">February</option>
-              <option value="">March</option>
-              <option value="">April</option>
-              <option value="">May</option>
-              <option value="">June</option>
-              <option value="">July</option>
-              <option value="">August</option>
-              <option value="">September</option>
-              <option value="">October</option>
-              <option value="">November</option>
-              <option value="">Decemeber</option>
-            </select>
-
-            <label class="expiration-year">Year</label>
-            <select id="experation-year" name="experation-year" required>
-              <option value="">Year</option>
-              <option value="">2023</option>
-              <option value="">2024</option>
-              <option value="">2025</option>
-              <option value="">2026</option>
-            </select>
+          <div>
+            <label for="departure-date">Departure date</label>
+            <input id="departure-date" name="departure-date" placeholder="DD/MM/YYYY" type="text" formControlName="departureDate" />
           </div>
         </div>
 
         <div>
-          <label for="cvv">CVV</label>
-          <input id="cvv" name="cvv" placeholder="415" type="text" required />
-          <a class="cvv-info" href="#">What is CVV?</a>
+
+          <div>
+            <h3 class="payment-heading">Payment Information</h3>
+            <label for="credit-card-num">
+              Card Number
+              <span class="card-logos">
+                <i class="card-logo fa-brands fa-cc-visa"></i>
+                <i class="card-logo fa-brands fa-cc-amex"></i>
+                <i class="card-logo fa-brands fa-cc-mastercard"></i>
+                <i class="card-logo fa-brands fa-cc-discover"></i>
+              </span>
+            </label>
+            <input id="credit-card-num" name="credit-card-num" placeholder="1111-2222-3333-4444" required type="text" formControlName="creditCardNum" />
+          </div>
+  
+          <div>
+            <p class="expires">Expires on:</p>
+            <div class="card-experation">
+              <label for="expiration-month">Month</label>
+              <select id="expiration-month" name="expiration-month" required formControlName="expirationMonth">
+                <option value="">Month:</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+  
+              <label class="expiration-year">Year</label>
+              <select id="expiration-year" name="expiration-year" required formControlName="expirationYear">
+                <option value="">Year</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="cvvDiv">
+            <label for="cvv">CVV</label>
+            <input id="cvv" name="cvv" placeholder="415" type="text" required formControlName="cvv" />
+            <a class="cvv-info" href="#">What is CVV?</a>
+          </div>
+  
+          <button class="btn" id="bookSecurelyButton" [disabled]="propertyForm.invalid" (click)="submitBooking()">
+            <i class="fa-solid fa-lock"></i> Book Securely
+          </button>
+          <p class="footer-text">
+            <i class="fa-solid fa-lock"></i>
+            Your credit card information is encrypted
+          </p>
         </div>
 
-        <button class="btn">
-          <i class="fa-solid fa-lock"></i> Book Securely
-        </button>
       </form>
-
-      <p class="footer-text">
-        <i class="fa-solid fa-lock"></i>
-        Your credit card infomration is encrypted
-      </p>
     </div>
   </div>
 </div>

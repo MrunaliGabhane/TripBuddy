@@ -3,12 +3,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PropertyService {
   private baseUrl = 'http://127.0.0.1:5000/api/properties'; // Update this URL if your backend URL is different
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllProperties(
     page: number,
@@ -35,5 +35,4 @@ export class PropertyService {
 
     return this.http.get<any>(this.baseUrl, { params });
   }
-
 }

@@ -1,14 +1,15 @@
-
-
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 25px;
   width: 100%;
 }
 
-.form-container{
-  width: 35%;
+.form-container {
+  width: 55%;
+  margin: auto;
+  margin-bottom: 20px;
   padding: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -63,7 +64,7 @@
 }
 
 .form-group button.btn-submit {
-margin: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
   background-color: #ff385c;
 }
 
@@ -75,13 +76,13 @@ margin: 10px 0 10px 0;
 
 .table-container {
   flex: 1;
-  margin-left: 20px;
+
 }
 
 .property-table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
-  margin: 5px;
+  margin: auto;
   padding: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
@@ -131,25 +132,49 @@ margin: 10px 0 10px 0;
   margin: 5px;
   width: 90px;
 }
-#form_heading{
+
+#form_heading {
   text-align: center;
   color: #ff385c;
   font-weight: bold;
 }
-#table_tr{
+
+#table_tr {
   background: #ff385c;
- 
+
 }
-#table_tr th{
+
+#table_tr th {
   color: whitesmoke;
 }
 
+#td_desc {
+  width: 20%;
+}
+
+.td_table {
+  width: 15%;
+  align-items: center;
+  text-align: center;
+}
 
 
+.spinner {
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(212, 31, 31, 0.3);
+  border-radius: 50%;
+  border-top: 5px solid #fff;
+  animation: spin 1s linear infinite;
+}
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
 
-
-
-
-
-
+  100% {
+    transform: rotate(360deg);
+  }
+}

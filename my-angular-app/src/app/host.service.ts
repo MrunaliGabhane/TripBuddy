@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HostService {
   private baseUrl = 'http://localhost:5000/api/properties';
@@ -12,11 +12,15 @@ export class HostService {
   constructor(private http: HttpClient) {}
 
   getProperties(): Observable<any> {
-    return this.http.get<any[]>(this.baseUrl).pipe(catchError(this.handleError));
+    return this.http
+      .get<any[]>(this.baseUrl)
+      .pipe(catchError(this.handleError));
   }
 
   createProperty(property: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl, property).pipe(catchError(this.handleError));
+    return this.http
+      .post<any>(this.baseUrl, property)
+      .pipe(catchError(this.handleError));
   }
 
   updateProperty(property: any): Observable<any> {

@@ -1,122 +1,151 @@
 /* properties.component.css */
 .property-page {
-    padding: 20px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+  background: #ff385c;
+  width: 100%;
+  padding: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+  flex: 1;
+  outline: none;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.property-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease-in-out;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.property-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.property-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.property-details {
+  flex: 1;
+}
+
+.property-details h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.property-details p {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.book-now-button {
+  background-color: #ff385c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+  margin: auto;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.book-now-button:hover {
+  background-color: #f21340;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+/* Add styles for the spinner */
+.spinner {
+
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #f21340;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+/* Keyframe animation for the spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .filters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    position: sticky;
-    top: 70px;
-    z-index: 999;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 14px;
-    flex: 1;
-    outline: none;
-  }
-  
-  .property-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .property-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.3s ease-in-out;
-    background-color: #fff;
-    border-radius: 5px;
-  }
-  
-  .property-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  }
-  
-  .property-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  
-  .property-details {
-    flex: 1;
-  }
-  
-  .property-details h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .property-details p {
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  .book-now-button {
-    background-color: #ff385c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-left: 75px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .book-now-button:hover {
-    background-color: #f21340;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .pagination button {
-    padding: 8px 15px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    margin-right: 5px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .pagination button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .pagination button:hover {
-    background-color: #0056b3;
-  }
-  
+}

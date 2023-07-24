@@ -4,24 +4,45 @@
     <form (ngSubmit)="onRegister()" #registerForm="ngForm">
       <div class="form-group">
         <label for="name">First Name</label>
-        <input type="text" id="name" name="name" required [(ngModel)]="name">
+        <input type="text" id="name" name="name" required [(ngModel)]="name" />
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" required [(ngModel)]="lastName">
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+          [(ngModel)]="lastName"
+        />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required [(ngModel)]="email">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          [(ngModel)]="email"
+        />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required [(ngModel)]="password">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          [(ngModel)]="password"
+        />
       </div>
       <button id="registerbtn" type="submit" [disabled]="isLoading">
         <span *ngIf="isLoading">Loading...</span>
         <span *ngIf="!isLoading">Register</span>
       </button>
+      <p class="colorLogin">
+        Already have an account?<span routerLink="/login"> Log In</span>
+      </p>
     </form>
   </div>
 </div>

@@ -14,7 +14,8 @@ export class HostsComponent implements OnInit {
   property: any = {};
   propertyForm: FormGroup;
   isEditing: boolean = false;
-
+  isLoading: boolean = true;
+  
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private hostService: HostService) {
     this.propertyForm = this.formBuilder.group({
       id: [''],
@@ -30,15 +31,19 @@ export class HostsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchProperties();
+    
   }
 
   fetchProperties() {
     this.hostService.getProperties().subscribe(
       (data) => {
         this.properties = data;
+        this.isLoading = false; // Set isLoading to false once data is fetched
+    
       },
       (error) => {
         console.error('Error fetching properties:', error);
+        this.isLoading = false; // Set isLoading to false if an error occurs while fetching data
       }
     );
   }
@@ -46,7 +51,7 @@ export class HostsComponent implements OnInit {
   onSubmit() {
     const formData = this.propertyForm.value;
     if (formData.id) {
-      this.http.put<any>('http://localhost:5000/api/properties/' + formData.id, formData)
+      this.http.put<any>('https://tripbuddy-r74j.onrender.com/' + formData.id, formData)
         .subscribe(
           () => {
             this.fetchProperties();
@@ -67,7 +72,7 @@ export class HostsComponent implements OnInit {
           }
         );
     } else {
-      this.http.post<any>('http://localhost:5000/api/properties', formData)
+      this.http.post<any>('https://tripbuddy-r74j.onrender.com/', formData)
         .subscribe(
           () => {
             this.fetchProperties();

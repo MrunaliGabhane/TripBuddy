@@ -19,7 +19,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CommonModule } from '@angular/common';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,16 +26,13 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
     CarouselComponent,
     HomeComponent,
     HostsComponent,
-
     LoginComponent,
-     RegisterComponent,
-     FooterComponent,
-     BookingsComponent,
-     PropertiesComponent,
-     AdminLoginComponent,
-     BookingDetailComponent,
-    
-    
+    RegisterComponent,
+    FooterComponent,
+    BookingsComponent,
+    PropertiesComponent,
+    AdminLoginComponent,
+    BookingDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +42,9 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
     BrowserAnimationsModule,
     SlickCarouselModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

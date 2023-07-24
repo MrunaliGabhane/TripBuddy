@@ -1,7 +1,7 @@
-
 .navbar {
   background-color: white;
-  color: #ff385c; /* Text color for the navbar */
+  color: #ff385c;
+  /* Text color for the navbar */
   display: flex;
   align-items: center;
   padding: 10px;
@@ -39,17 +39,20 @@
   margin-right: 10px;
   display: flex;
   align-items: center;
-  
+
 }
+
 .navbar-links li a {
   color: #ff385c;
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
- 
+
 }
+
 .router-link-active {
-  border-bottom: 2px solid #e5e5e5; /* Highlight active link */
+  border-bottom: 2px solid #e5e5e5;
+  /* Highlight active link */
 }
 
 /* Additional styles for a more attractive navbar (customize as needed) */
@@ -58,20 +61,22 @@
 }
 
 
-.navbar-actions{
+.navbar-actions {
   width: 20%;
   /* border: 1px solid red; */
   margin-right: 17px;
   display: flex;
   justify-content: space-around;
 }
-.navbar-action-btn{
+
+.navbar-action-btn {
   padding: 5px 15px 5px 15px;
   border-radius: 10px;
   background-color: #ff385c;
   color: white;
   font-weight: bold;
 }
- .navbar-action-btn:hover{
+
+.navbar-action-btn:hover {
   background-color: #fe1842;
- }
+}

@@ -1,12 +1,39 @@
-#main{
-    display:flex;
-    justify-content: center;
-    background: #ff385c;
-    padding-top: 20px;
+#main {
+  display: flex;
+  justify-content: center;
+  background: #ff385c;
+  padding: 20px 0;
 }
 
-#main>div{
-    width:100%;
-    align-items: center;
-    margin-left: 100px;
+#main>div {
+  width: 100%;
+  max-width: 250px;
+  /* Limit the width of each column for smaller screens */
+  margin: 0 20px;
+  /* Add margin between columns for better spacing */
+}
+
+/* Responsive styles for tablets */
+@media screen and (max-width: 768px) {
+  #main {
+    flex-wrap: wrap;
+    /* Allow the columns to wrap on smaller screens */
+  }
+
+  #main>div {
+    max-width: 300px;
+    /* Increase the width of each column for better spacing on tablets */
+    margin: 0 10px;
+    /* Reduce the margin between columns for better spacing on tablets */
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 480px) {
+  #main>div {
+    max-width: 100%;
+    /* Allow each column to take the full width on mobile devices */
+    margin: 10px 0;
+    /* Remove margin between columns on mobile devices */
+  }
 }

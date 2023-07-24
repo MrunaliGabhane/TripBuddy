@@ -39,7 +39,7 @@ export class LoginComponent {
     });
 
     // Replace the backend API URL with your actual backend API URL
-    this.http.post<any>('http://127.0.0.1:5000/login/guest', loginData).subscribe(
+    this.http.post<any>('https://tripbuddy-r74j.onrender.com/login/guest', loginData).subscribe(
       (response) => {
         if (response.message === 'Guest login successful') {
           localStorage.setItem('userRole', 'guest')
@@ -47,7 +47,7 @@ export class LoginComponent {
           this.isLoading = false; // Set isLoading to false after the login process
 
           // Redirect to the host page
-          this.router.navigate(['/properties']);
+          this.router.navigate(['/booking']);
 
           // Close the SweetAlert loading indicator
           Swal.close();

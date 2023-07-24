@@ -12,8 +12,7 @@ import { BookingService } from '../booking.service';
 export class BookingDetailComponent implements OnInit {
   bookingDetails: any;
   currentStep: number = 0;
-  generalDetailsForm: FormGroup;
-  paymentDetailsForm: FormGroup;
+  propertyForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,19 +20,17 @@ export class BookingDetailComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router
   ) {
-    this.generalDetailsForm = this.formBuilder.group({
-      name: ['', Validators.required],
+    this.propertyForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      age: ['', Validators.required],
-      gender: ['', Validators.required],
-      checkIn: ['', Validators.required],
-      checkOut: ['', Validators.required]
-    });
-
-    this.paymentDetailsForm = this.formBuilder.group({
+      arrivalDate: ['', Validators.required],
+      departureDate: [''],
+      creditCardNum: ['', Validators.required],
+      expirationMonth: ['', Validators.required],
+      expirationYear: ['', Validators.required],
       cvv: ['', Validators.required],
-      cardNumber: ['', Validators.required],
-      expiryDate: ['', Validators.required]
     });
   }
 
@@ -57,7 +54,6 @@ export class BookingDetailComponent implements OnInit {
       console.error('Booking ID not found.');
     }
   }
-
 
   startBooking() {
     this.currentStep = 1;
@@ -88,11 +84,9 @@ export class BookingDetailComponent implements OnInit {
             }).then(() => {
               this.router.navigate(['/']);
               this.bookingService.deleteBooking(this.bookingDetails.booking_id).toPromise();
-
             });
             this.currentStep = 0;
-            this.generalDetailsForm.reset();
-            this.paymentDetailsForm.reset();
+            this.propertyForm.reset();
           },
           (error) => {
             console.error('Error submitting booking:', error);
@@ -102,10 +96,9 @@ export class BookingDetailComponent implements OnInit {
               text: 'An error occurred while submitting the booking. Please try again later.',
               showConfirmButton: false,
               timer: 3000
-            })
+            });
           }
         ).finally(() => {
-
           Swal.hideLoading();
         });
       }
